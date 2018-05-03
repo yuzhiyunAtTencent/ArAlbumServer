@@ -14,9 +14,16 @@ import java.util.List;
 @RestController
 public class ArAlbumController {
 
+    /**
+     * @Autowired 代表自动装配，省略了gettter,setter,spring自动生成bean并注入
+     */
     @Autowired
     private ArPhotoRepository arPhotoRepository;
 
+    /**
+     * @GetMapping 代表使用get请求
+     * @return
+     */
     @GetMapping(value = "/arPhotoList")
     public List<ArPhoto> arPhotoList(){
         return arPhotoRepository.findAll();
