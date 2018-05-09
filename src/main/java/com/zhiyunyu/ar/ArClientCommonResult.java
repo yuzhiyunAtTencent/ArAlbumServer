@@ -1,15 +1,11 @@
-package com.zhiyunyu.ar.Model.ClientResultModel;
+package com.zhiyunyu.ar;
 
-import com.zhiyunyu.ar.Model.ArPhoto;
-
-import java.util.List;
-
-public class ArPhotoListResult {
+public class ArClientCommonResult {
     private  String code;
     private  String msg;
-    private List<ArPhoto> data;
+    private  Object data;
 
-    public ArPhotoListResult() {
+    public ArClientCommonResult() {
     }
 
     public String getCode() {
@@ -28,11 +24,11 @@ public class ArPhotoListResult {
         this.msg = msg;
     }
 
-    public List<ArPhoto> getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(List<ArPhoto> data) {
+    public void setData(Object data) {
         this.data = data;
     }
 }

@@ -1,13 +1,11 @@
-package com.zhiyunyu.ar.Controller;
+package com.zhiyunyu.ar.Photo.Controller;
 
-import com.zhiyunyu.ar.Model.ClientResultModel.ArPhotoListResult;
-import com.zhiyunyu.ar.Repository.ArPhotoRepository;
-import com.zhiyunyu.ar.Model.ArPhoto;
+import com.zhiyunyu.ar.ArClientCommonResult;
+import com.zhiyunyu.ar.Photo.Repository.ArPhotoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * Created by yuzhiyun on 2018-04-30.
@@ -26,9 +24,10 @@ public class ArAlbumController {
      * @return
      */
     @GetMapping(value = "/arPhotoList")
-    public ArPhotoListResult arPhotoList(){
-        ArPhotoListResult result = new ArPhotoListResult();
-        result.setData(arPhotoRepository.findAll());
+    public ArClientCommonResult arPhotoList(@RequestParam("userId") String userId){
+
+        ArClientCommonResult result = new ArClientCommonResult();
+        result.setData(arPhotoRepository.findByUserId(userId));
         result.setCode("0");
         result.setMsg("success");
 

@@ -1,4 +1,4 @@
-package com.zhiyunyu.ar.Model;
+package com.zhiyunyu.ar.Photo.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +10,8 @@ import javax.persistence.Id;
 @Entity
 public class ArPhoto {
     @Id
-    @GeneratedValue
-    private Integer id;
+    private String id;
+    private String userId;
     private String title;
     private String place;
     private String date;
@@ -20,12 +20,20 @@ public class ArPhoto {
     public ArPhoto() {
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {
