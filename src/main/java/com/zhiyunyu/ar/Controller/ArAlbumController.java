@@ -1,5 +1,6 @@
 package com.zhiyunyu.ar.Controller;
 
+import com.zhiyunyu.ar.Model.ClientResultModel.ArPhotoListResult;
 import com.zhiyunyu.ar.Repository.ArPhotoRepository;
 import com.zhiyunyu.ar.Model.ArPhoto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,12 @@ public class ArAlbumController {
      * @return
      */
     @GetMapping(value = "/arPhotoList")
-    public List<ArPhoto> arPhotoList(){
-        return arPhotoRepository.findAll();
+    public ArPhotoListResult arPhotoList(){
+        ArPhotoListResult result = new ArPhotoListResult();
+        result.setData(arPhotoRepository.findAll());
+        result.setCode("0");
+        result.setMsg("success");
+
+        return result;
     }
 }
