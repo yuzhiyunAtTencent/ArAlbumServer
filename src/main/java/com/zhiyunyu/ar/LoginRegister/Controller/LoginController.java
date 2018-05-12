@@ -21,12 +21,10 @@ public class LoginController {
         ArClientCommonResult result = new ArClientCommonResult();
 
         User user = userRepository.findByUserName(userName);
-        if (null != user && user.getPwd() != null) {
-            if (user.getPwd().equals(pwd)) {
-                result.setCode("0");
-                result.setMsg("success");
-                result.setData(user);
-            }
+        if (null != user && user.getPwd() != null && user.getPwd().equals(pwd)) {
+            result.setCode("0");
+            result.setMsg("success");
+            result.setData(user);
         } else {
             result.setCode("1");
             result.setMsg("用户名或密码不存在");
